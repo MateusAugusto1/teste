@@ -1,26 +1,24 @@
-import React, { useEffect, useState } from "react"
-import { getDate } from "../../common/getDate"
+import React, { Component } from 'react';
 
-import styles from "./App.module.scss"
-import logo from "../public/logo192.png"
+class App extends Component{
+  constructor(){
+    super();
 
-export const App: React.FC = () => {
+    this.state = {
+      title: '',
+    };
+  }
 
-  const [date, setDate] = useState(getDate())
-
-  useEffect(() => {
-    setTimeout(() => setDate(getDate()), 1000)
-  }, [date, setDate])
-
-  return (
-    <div className={styles.app}>
-      <img
-        src={logo}
-        alt="React logo"
-      />
-      <h1>Electron React Typescript</h1>
-      <p>Code changes will reload the app automatically.</p>
-      <pre>{date}</pre>
-    </div>
-  )
+  render(){
+    const {title} = this.state;
+    return (
+      <div>
+      <input type="text" />
+      <button type="button">Adicionar Bloco de tarefas</button>
+      </div>
+      
+    );
+  }
 }
+
+export default App;
